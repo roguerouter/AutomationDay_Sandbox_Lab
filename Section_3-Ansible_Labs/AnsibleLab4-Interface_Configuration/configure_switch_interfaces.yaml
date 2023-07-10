@@ -1,0 +1,8 @@
+---
+- hosts: switches
+  gather_facts: false
+ 
+  tasks:
+  - ansible.builtin.import_tasks: ./tasks/configure_switch_interfaces.yaml
+  - ansible.builtin.import_tasks: ./tasks/configure_SVIs.yaml
+  - ansible.builtin.import_tasks: ./tasks/shutdown_unused_switchports.yaml

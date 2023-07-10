@@ -1,0 +1,15 @@
+- name: "Configure NTP on NXOS devices"
+  cisco.nxos.nxos_ntp_global:
+    config:
+      servers:
+      - server: "{{ ntp_server_ip }}"
+        vrf: management
+  when: ansible_network_os == "nxos"
+
+- name: "Configure NTP on IOS devices"
+  cisco.ios.ios_ntp_global:
+    config:
+      servers: 
+      - server: "{{ ntp_server_ip }}"
+        vrf: Mgmt-vrf
+  when: ansible_network_os == "ios"

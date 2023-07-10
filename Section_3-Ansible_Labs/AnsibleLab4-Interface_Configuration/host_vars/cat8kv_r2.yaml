@@ -1,0 +1,13 @@
+routed_interfaces:
+- name: GigabitEthernet1
+  description: "Link to cat8kv_r1"
+  enabled: True
+  address: 192.168.3.2/30
+- name: GigabitEthernet2
+  description: "Link to n9kv_sw3"
+  enabled: True
+  address: 192.168.4.126/25
+- name: GigabitEthernet3
+  description: "Link to n9kv_sw1"
+  enabled: True
+  address: 192.168.4.254/25

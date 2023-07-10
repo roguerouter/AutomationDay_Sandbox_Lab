@@ -1,0 +1,13 @@
+---
+- hosts: cat8kv_r2,cat8kv_r1
+  gather_facts: no
+
+  tasks:
+  - name: IOS >> Save Configuration to NVRAM
+    ios_config:
+      save_when: always
+    register: output
+
+  - name: DEBUG >> output
+    debug:
+      msg: "{{ output }}"

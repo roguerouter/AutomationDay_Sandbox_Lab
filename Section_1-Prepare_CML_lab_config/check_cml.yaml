@@ -1,0 +1,18 @@
+---
+- name: Check Status of CML hosts
+  hosts: all
+  gather_facts: False
+
+  tasks:
+    - block:
+        - wait_for_connection:
+            sleep: 1
+            timeout: 10
+      rescue:
+        - debug:
+            msg: "{{ inventory_hostname }} not connected. End of host."
+        - meta: clear_host_errors
+        - meta: end_host
+
+    - debug:
+        msg: "{{ inventory_hostname }} is running"

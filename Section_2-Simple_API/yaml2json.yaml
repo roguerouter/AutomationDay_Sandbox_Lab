@@ -1,0 +1,22 @@
+---
+- hosts: localhost
+  gather_facts: false
+
+  tasks:
+    - name: "Delete JSON formatted CML labfile if it exists"
+      file:
+        path: ./automation_day_import.json
+        state: absent
+
+    - name: "Read YAML formatted CML labfile and store in variable"
+      shell: cat ../Section_1-Prepare_CML_lab_config/processed_files/automation_day_template.yaml
+      register: templatedata
+      
+    - name: "Convert YAML to nicely formatted JSON"
+      set_fact:
+        myvar: "{{ templatedata.stdout | from_yaml | to_json(indent=4) }}"
+
+    - name: "Save JSON to file"
+      copy:
+        content: "{{ myvar }}"
+        dest: ./automation_day_import.json

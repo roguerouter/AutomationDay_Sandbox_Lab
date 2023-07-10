@@ -1,0 +1,19 @@
+---
+- name: Check Status of CML hosts
+  hosts: all
+  connection: ssh
+  gather_facts: False
+
+  tasks:
+  - name: "Run a shell command on a remote host"
+    shell: |
+      ping -c1 10.10.20.101
+      ping -c1 10.10.20.102
+      ping -c1 10.10.20.103
+      ping -c1 10.10.20.104
+      ping -c1 10.10.20.105
+      ping -c1 10.10.20.108
+    register: result
+  
+  - debug:
+      var: result

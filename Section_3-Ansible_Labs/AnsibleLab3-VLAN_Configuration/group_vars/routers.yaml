@@ -1,0 +1,3 @@
+vlans:
+- name: Fake_Router_Vlan
+  id: 950

@@ -1,0 +1,37 @@
+---
+- name: (IOS) Apply description and enable L2 interfaces
+  cisco.ios.ios_interfaces:
+    config:
+    - name: "{{ item.name }}"
+      description: "{{ item.description }}"
+      enabled: "{{ item.enabled }}"
+  loop: "{{ switchport_interfaces }}"
+  when: ansible_network_os == "ios"
+
+- name: (IOS) Configure Switchport Access and VLAN
+  cisco.ios.ios_l2_interfaces:
+    config:
+    - name: "{{item.name}}"
+      mode: access
+      access:
+        vlan: "{{item.vlan_id}}"
+  loop: "{{ switchport_interfaces }}"
+  when: ansible_network_os == "ios"
+  
+- name: (NX-OS) Apply description and enable L2 interfaces
+  cisco.nxos.nxos_interfaces:
+    config:
+    - name: "{{ item.name }}"
+      description: "{{ item.description }}"
+      enabled: "{{ item.enabled }}"
+  loop: "{{ switchport_interfaces }}"
+  when: ansible_network_os == "nxos"
+
+- name: (NX-OS) Configure Switchport Access and VLAN
+  cisco.nxos.nxos_l2_interfaces:
+    config:
+    - name: "{{ item.name }}"
+      access:
+        vlan: "{{ item.vlan_id }}"
+  loop: "{{ switchport_interfaces }}"
+  when: ansible_network_os == "nxos"

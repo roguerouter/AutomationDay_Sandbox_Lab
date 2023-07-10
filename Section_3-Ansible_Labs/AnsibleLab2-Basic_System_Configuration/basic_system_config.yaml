@@ -1,0 +1,10 @@
+---
+- hosts: all
+  gather_facts: false
+  tasks:
+  - ansible.builtin.import_tasks: ./tasks/hostname.yml
+    tags: hostname
+  - ansible.builtin.import_tasks: ./tasks/banner.yml
+    tags: banner
+  - ansible.builtin.import_tasks: ./tasks/ntp.yml
+    tags: ntp

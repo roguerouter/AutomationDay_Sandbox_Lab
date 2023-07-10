@@ -1,0 +1,2 @@
+domain_name: labenv.demo.local
+ntp_server_ip: 172.16.1.100

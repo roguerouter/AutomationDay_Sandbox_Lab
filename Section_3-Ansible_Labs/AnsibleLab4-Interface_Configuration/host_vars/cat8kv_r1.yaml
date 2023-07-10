@@ -1,0 +1,13 @@
+routed_interfaces:
+- name: GigabitEthernet1
+  description: "Ubuntu Desktop"
+  enabled: True
+  address: 192.168.1.2/30
+- name: GigabitEthernet2
+  description: "link to n9kv_sw2"
+  enabled: True
+  address: 192.168.2.254/24
+- name: GigabitEthernet3
+  description: "Link to cat8kv_r2"
+  enabled: True
+  address: 192.168.3.1/30

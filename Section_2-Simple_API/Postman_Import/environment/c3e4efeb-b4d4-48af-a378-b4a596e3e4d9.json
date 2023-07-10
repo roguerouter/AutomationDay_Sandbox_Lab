@@ -1,0 +1,39 @@
+{
+	"id": "8baae843-329d-4fee-a05f-d408d6952a05",
+	"name": "CML",
+	"values": [
+		{
+			"key": "username",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "password",
+			"value": "",
+			"type": "secret",
+			"enabled": true
+		},
+		{
+			"key": "token",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "BASE_URL",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "LAB_ID",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2023-04-21T15:26:29.620Z",
+	"_postman_exported_using": "Postman/10.13.4"
+}

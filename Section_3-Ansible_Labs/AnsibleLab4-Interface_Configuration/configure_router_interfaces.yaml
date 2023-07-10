@@ -1,0 +1,20 @@
+---
+- hosts: routers
+  gather_facts: false
+
+  tasks:
+  - name: Apply description and enable L3 interfaces
+    cisco.ios.ios_interfaces:
+      config:
+      - name: "{{ item.name }}"
+        description: "{{ item.description }}"
+        enabled: "{{ item.enabled }}"
+    loop: "{{ routed_interfaces }}"
+
+  - name: Configure IP on interfaces
+    cisco.ios.ios_l3_interfaces:
+      config:
+      - name: "{{item.name}}"
+        ipv4:
+        - address: "{{ item.address }}"
+    loop: "{{ routed_interfaces }}"

@@ -1,0 +1,14 @@
+- name: Configure NX-OS Hostname and Domain
+  nxos_system:
+    hostname: "{{ inventory_hostname }}"
+    domain_name: "{{ domain_name }}"
+    state: present
+  when: ansible_network_os == "nxos"
+
+- name: Configure IOS-XE Hostname and Domain
+  ios_system:
+    hostname: "{{ inventory_hostname }}"
+    domain_name: "{{ domain_name }}"
+  when: ansible_network_os == "ios"
+  
+    

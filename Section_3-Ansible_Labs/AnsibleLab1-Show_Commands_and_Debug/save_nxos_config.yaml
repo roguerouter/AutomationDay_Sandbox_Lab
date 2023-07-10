@@ -1,0 +1,13 @@
+---
+- hosts: n9kv_sw1,n9kv_sw2,n9kv_sw3
+  gather_facts: no
+
+  tasks:
+  - name: NXOS >> Save Configuration to NVRAM
+    nxos_config:
+      save_when: always
+    register: output
+
+  - name: DEBUG >> output
+    debug:
+      msg: "{{ output }}"

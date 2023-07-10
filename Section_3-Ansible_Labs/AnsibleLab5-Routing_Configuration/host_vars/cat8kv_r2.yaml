@@ -1,0 +1,11 @@
+ospf:
+- process_id: 1
+  area_id: 0
+  network_addr: 192.168.3.0
+  wildcard: 0.0.0.3
+  network_area: 0
+- process_id: 1
+  area_id: 0
+  network_addr: 192.168.4.0
+  wildcard: 0.0.0.255
+  network_area: 0

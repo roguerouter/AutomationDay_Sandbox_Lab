@@ -1,0 +1,12 @@
+- name: "Configure Banner"
+  nxos_banner:
+    banner: motd
+    text: "{{ lookup('file', './templates/banner.cfg') }}"
+    state: present
+  when: ansible_network_os == "nxos"
+
+- name: "Configure Banner"
+  ios_banner:
+    banner: motd
+    text: "{{ lookup('file', './templates/banner.cfg') }}"
+  when: ansible_network_os == "ios"

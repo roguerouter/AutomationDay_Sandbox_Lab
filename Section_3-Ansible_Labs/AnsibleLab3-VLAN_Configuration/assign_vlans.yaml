@@ -1,0 +1,20 @@
+---
+- hosts: switches
+  gather_facts: false
+  
+  tasks:
+  - name: (IOS) Configure VLAN interfaces
+    cisco.ios.ios_vlans:
+      config:
+      - name: "{{ item.name }}"
+        vlan_id: "{{ item.id }}"
+    loop: "{{ vlans }}"
+    when: ansible_network_os == "ios"
+  
+  - name: (NX-OS) Configure VLAN interfaces
+    cisco.nxos.nxos_vlans:
+      config:
+      - name: "{{ item.name }}"
+        vlan_id: "{{ item.id }}"
+    loop: "{{ vlans }}"
+    when: ansible_network_os == "nxos"

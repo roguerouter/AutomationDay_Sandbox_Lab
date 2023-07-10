@@ -1,0 +1,37 @@
+---
+- name: (IOS) Apply description and shutdown L2 interfaces
+  cisco.ios.ios_interfaces:
+    config:
+    - name: "{{ item.name }}"
+      description: "Shutdown - Unused VLAN999"
+      enabled: false
+  loop: "{{ shutdown_interfaces }}"
+  when: ansible_network_os == "ios"
+
+- name: (IOS) Move unused ports to VLAN 999
+  cisco.ios.ios_l2_interfaces:
+    config:
+    - name: "{{item.name}}"
+      mode: access
+      access:
+        vlan: 999
+  loop: "{{ shutdown_interfaces }}"
+  when: ansible_network_os == "ios"
+
+- name: (NX-OS) Apply description and shutdown L2 interfaces
+  cisco.nxos.nxos_interfaces:
+    config:
+    - name: "{{ item.name }}"
+      description: "Shutdown - Unused VLAN999"
+      enabled: false
+  loop: "{{ shutdown_interfaces }}"
+  when: ansible_network_os == "nxos"
+
+- name: (NX-OS) Move unused ports to VLAN 999
+  cisco.nxos.nxos_l2_interfaces:
+    config:
+    - name: "{{ item.name }}"
+      access:
+        vlan: 999
+  loop: "{{ shutdown_interfaces }}"
+  when: ansible_network_os == "nxos"

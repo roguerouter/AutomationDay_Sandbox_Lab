@@ -1,0 +1,3 @@
+vlans:
+- name: Ansible_vlan_20
+  id: 20

@@ -1,0 +1,54 @@
+---
+- hosts: all
+  gather_facts: false
+  
+  tasks:
+  
+  - name: Configure OSPF Routers on Cat8k Routers
+    cisco.ios.ios_ospfv2:
+      config:
+        processes:
+        - process_id: "{{ item.process_id }}"
+          areas:
+          - area_id: "{{item.area_id}}"
+          network:
+            - address: "{{ item.network_addr}}"
+              wildcard_bits: "{{ item.wildcard}}"
+              area: "{{ item.network_area }}"
+    loop: "{{ ospf }}"
+    when: "'routers' in group_names"
+
+  - name: Static Route on cat9kv_sw1
+    cisco.ios.ios_static_routes:
+        config:
+        - address_families:
+          - afi: ipv4
+            routes:
+            - dest: 0.0.0.0/0
+              next_hops:
+              - forward_router_address: "192.168.2.254"
+                name: default
+    when: "'cat9kv_sw1' in inventory_hostname"
+  
+  - name: Static Route on cat9kv_sw2
+    cisco.ios.ios_static_routes:
+        config:
+        - address_families:
+          - afi: ipv4
+            routes:
+            - dest: 0.0.0.0/0
+              next_hops:
+              - forward_router_address: "192.168.4.126"
+                name: default
+    when: "'cat9kv_sw2' in inventory_hostname"
+
+  - name: Static Route on n9kv_sw1
+    cisco.nxos.nxos_static_routes:
+        config:
+        - address_families:
+          - afi: ipv4
+            routes:
+            - dest: 0.0.0.0/0
+              next_hops:
+              - forward_router_address: "192.168.4.254"
+    when: "'n9kv_sw1' in inventory_hostname"

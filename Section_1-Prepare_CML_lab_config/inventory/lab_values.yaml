@@ -1,0 +1,32 @@
+all:
+  children:
+    cml_configuration:
+      hosts:
+        local:
+          ansible_host: localhost
+      vars:
+        
+        cml_lab_title: "Automation Day - Sandbox Lab"
+        cat8kv_r1_mgmt: 10.10.20.101
+        cat8kv_r2_mgmt: 10.10.20.102
+        n9kv_sw1_mgmt: 10.10.20.103
+        n9kv_sw2_mgmt: 10.10.20.104
+        n9kv_sw3_mgmt: 10.10.20.105
+        cml_sandbox_gateway: "10.10.20.254"
+        ubuntu_hostname: sandboxhost
+        ubuntu_host_ens2: "10.10.20.108/24"
+        domain_name: ansible.lab
+        dns1: "8.8.8.8"
+        ubuntu_host_ens3: "192.168.1.1/30"
+        alpine0_hostname: "alpine-0"
+        alpine0_eth0_ip: "192.168.2.100"
+        alpine0_eth0_mask: "/24"
+        alpine0_eth0_gw: "192.168.2.254"
+        alpine1_hostname: "alpine-1"
+        alpine1_eth0_ip: "192.168.4.64"
+        alpine1_eth0_mask: "/25"
+        alpine1_eth0_gw: "192.168.4.126"
+        alpine2_hostname: "alpine-2"
+        alpine2_eth0_ip: "192.168.4.192"
+        alpine2_eth0_mask: "/25"
+        alpine2_eth0_gw: "192.168.4.254"

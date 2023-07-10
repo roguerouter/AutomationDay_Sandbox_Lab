@@ -1,0 +1,7 @@
+lab_build_folder
+README copy.md
+README.orig.md
+Section_0-Pipeline/
+Section_1-Prepare_CML_lab_config/processed_files/*
+Section_1-Prepare_CML_lab_config/templates/automation_day_templateold.j2
+Section_2-Simple_API/automation_day_import.json

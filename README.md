@@ -66,7 +66,7 @@ sudo apt-get update -y
 sudo apt install python3.10 python3-pip git python3-venv sshpass -y
 pip3 install --upgrade pip
 pip3 install ansible ansible-pylibssh
-git clone https://github.com/roguerouter/AutomationDay_Sandbox_Lab.git
+git clone https://github.com/CiscoSE/AutomationDay_Sandbox_Lab.git
 ```
 Once complete the container will be ready to use for the labs.
 
@@ -79,7 +79,7 @@ sudo apt-get update -y
 sudo apt install python3.10 python3-pip git python3-venv sshpass -y
 pip3 install --upgrade pip
 pip3 install ansible ansible-pylibssh
-git clone https://github.com/roguerouter/AutomationDay_Sandbox_Lab.git
+git clone https://github.com/CiscoSE/AutomationDay_Sandbox_Lab.git
 ```
 
 ## Extension Installation Instructions
@@ -102,7 +102,7 @@ If you have a Linux host or VM running in your environment, you can use Remote-S
 
 With either method, VScode will load some extensions on the system allowing you the ability to open a remote folder.  Before doing this, clone this repo to your remote host by running
 
-```git clone https://github.com/roguerouter/AutomationDay_Sandbox_Lab.git```
+```git clone https://github.com/CiscoSE/AutomationDay_Sandbox_Lab.git```
 
 Once complete, click on the explorer button (The two files in the upper left hand corner...if not already open) and then select Open Folder.  Select the AutomationDay_Sandbox_Lab folder and hit OK.  Right Click on Section_1-Prepare_CML_lab_config folder and select Open in Integrated Terminal.
 

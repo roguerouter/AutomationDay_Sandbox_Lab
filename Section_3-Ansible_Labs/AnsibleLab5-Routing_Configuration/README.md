@@ -19,7 +19,7 @@ ansible-playbook configure_routing.yaml -k
 
 ### Tests
 
-From your terminal, ssh to netops@10.10.20.108 enter the netops_admin password and attempt to ping and ssh the internal CML hosts.
+From your terminal, ssh to netops@10.10.20.108 (Ubuntu Host in CML) enter the netops_admin password and attempt to ping and ssh the internal CML hosts.
 
 When this lab is complete, you should be able to perform the following:
 

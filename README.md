@@ -7,8 +7,8 @@ This repository contains practice labs for the Automation Day event hands-on exp
 The content is broken up into the following sections:
 
 1. **Section_1-Prepare_CML_Lab_Config**
-  * Section 1 is where the Ansible inventory and the lab file for Cisco Modeling Labs are generated.  Contained within the directory is an inventory directory with a lab_values.yaml file.  The IP addressing in this file is designed allow you to start a lab at day 1 (management access only).  The lab contains a Ubuntu (Linux) host that you can access via SSH or using Remote-SSH extension in Visual Studio code.  The Ubuntu host requires internet access to complete deployment of the lab.
-
+  * Section 1 is where the Ansible inventory and the lab file for Cisco Modeling Labs are generated.  Contained within the directory is an inventory directory with a lab_values.yaml file.  The IP addressing in this file is designed allow you to start a lab at day 1 (management access only).  The lab contains a Ubuntu (Linux) host that you can access via SSH or using Remote-SSH extension in Visual Studio code.  The Ubuntu host can be used to SSH into CML and perform ping tests and ssh to the Alpine hosts connected to the lab.
+  
 2. **Section_2-Simple_API_Demo**
   * Section 2 contains preconfigured application programming interface (API) calls and environment variables that can be imported to Postman.  These files will allow exploration of the CML API including authentication steps, uploading a lab file, starting a lab, and verifying operation.
 
